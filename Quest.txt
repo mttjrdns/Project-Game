@@ -1,0 +1,4 @@
+stage 2 -> 
+quest text with timer, bow +1 ->
+if bow == 5 -> get 1 hp, boss spawn ->
+else if bow != 5 -> quest failed & continue -> if bow == 5 boss spawn

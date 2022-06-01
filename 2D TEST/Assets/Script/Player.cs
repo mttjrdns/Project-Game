@@ -90,8 +90,8 @@ public class Player : MonoBehaviour
             }
             else
             {
-                Debug.Log(playerHealth);
-                //playerHealth = playerHealth;
+                //Debug.Log(playerHealth);
+                playerHealth = playerHealth;
             }
         }
         else
