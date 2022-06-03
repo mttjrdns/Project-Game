@@ -17,68 +17,68 @@ public class Player : MonoBehaviour
     public int arrowSize;
     public int playerArrow;
     //public GameObject deathEffect;
-
-    private void Update()
+	private void Update()
     {
-        //Hearts
-        for(int i = 0; i < hearts.Length; i++)
-        {
-            if(playerHealth > numOfHearths)
-            {
-                playerHealth = numOfHearths;
-            }
+		//Hearts
+		for (int i = 0; i < hearts.Length; i++)
+		{
+			Debug.Log(playerHealth);
+			if (playerHealth > numOfHearths)
+			{
+				playerHealth = numOfHearths;
+			}
+			Debug.Log(hearts.Length);
+			if (i < playerHealth)
+			{
+				hearts[i].sprite = fullHeart;
+			}
+			else
+			{
+				hearts[i].sprite = emptyHeart;
+			}
 
-            if (i < playerHealth)
-            {
-                hearts[i].sprite = fullHeart;
-            }
-            else
-            {
-                hearts[i].sprite = emptyHeart;
-            }
+			if (i < numOfHearths)
+			{
+				hearts[i].enabled = true;
+			}
+			else
+			{
+				hearts[i].enabled = false;
+			}
+		}
 
-            if (i < numOfHearths)
-            {
-                hearts[i].enabled = true;
-            }
-            else
-            {
-                hearts[i].enabled = false;
-            }
-        }
+		//Arrow
+		for (int i = 0; i < arrows.Length; i++)
+		{
+			if (playerArrow > arrowSize)
+			{
+				playerArrow = arrowSize;
+			}
 
-        //Arrow
-        for(int i = 0; i < arrows.Length; i++)
-        {
-            if (playerArrow > arrowSize)
-            {
-                playerArrow = arrowSize;
-            }
+			if (i < arrowSize)
+			{
+				arrows[i].sprite = arrow;
+			}
 
-            if (i < arrowSize)
-            {
-                arrows[i].sprite = arrow;
-            }
+			if (i < playerArrow)
+			{
+				arrows[i].sprite = arrow;
+			}
+			else
+			{
+				arrows[i].sprite = empty;
+			}
 
-            if (i < playerArrow)
-            {
-                arrows[i].sprite = arrow;
-            }
-            else
-            {
-                arrows[i].sprite = empty;
-            }
-           
-            if (i < arrowSize)
-            {
-                arrows[i].enabled = true;
-            }
-            else
-            {
-                arrows[i].enabled = false;
-            }
-        }
-    }
+			if (i < arrowSize)
+			{
+				arrows[i].enabled = true;
+			}
+			else
+			{
+				arrows[i].enabled = false;
+			}
+		}
+	}
 
     public void AddHealth(int health)
     {
@@ -90,7 +90,7 @@ public class Player : MonoBehaviour
             }
             else
             {
-                //Debug.Log(playerHealth);
+                
                 playerHealth = playerHealth;
             }
         }

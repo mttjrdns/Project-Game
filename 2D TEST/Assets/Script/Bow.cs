@@ -18,7 +18,7 @@ public class Bow : MonoBehaviour
             {
                 Shoot();
                 player.playerArrow--;
-                Debug.Log(player.playerArrow);
+                //Debug.Log(player.playerArrow);
             }
         }
     }
