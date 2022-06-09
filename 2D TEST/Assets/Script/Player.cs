@@ -16,18 +16,18 @@ public class Player : MonoBehaviour
     public Sprite empty;
     public int arrowSize;
     public int playerArrow;
-    //public GameObject deathEffect;
+	//public GameObject deathEffect;
+
 	private void Update()
     {
 		//Hearts
+
 		for (int i = 0; i < hearts.Length; i++)
 		{
-			Debug.Log(playerHealth);
 			if (playerHealth > numOfHearths)
 			{
 				playerHealth = numOfHearths;
 			}
-			Debug.Log(hearts.Length);
 			if (i < playerHealth)
 			{
 				hearts[i].sprite = fullHeart;
@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
 			{
 				hearts[i].enabled = false;
 			}
+			//Debug.Log(playerHealth);
 		}
 
 		//Arrow
@@ -98,12 +99,13 @@ public class Player : MonoBehaviour
         {
             playerHealth += health;
         }
+		Debug.Log(playerHealth);
     }
 
     public void TakeDamage(int damage)
     {
         playerHealth -= damage;
-        //Debug.Log(playerHealth);
+        Debug.Log(playerHealth);
         if (playerHealth <= 0)
         {
             Die();
@@ -116,4 +118,21 @@ public class Player : MonoBehaviour
         //Debug.Log(gameObject);
         Destroy(gameObject);
     }
+
+	public void SavePlayer()
+	{
+		SaveSystem.SavePlayer(this);
+		Debug.Log("Saved " + playerHealth);
+	}
+
+	public void LoadPlayer()
+	{
+		PlayerData data = SaveSystem.LoadPlayer();
+
+		playerHealth = data.health;
+		playerArrow = data.arrow;
+		numOfHearths = data.heartSize;
+		arrowSize = data.numArrow;
+		Debug.Log("Loaded " + playerHealth);
+	}
 }
