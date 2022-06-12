@@ -177,11 +177,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5205277236191770186, guid: 0ff7489ce3aade34095b90b206b18808, type: 3}
       propertyPath: arrowSize
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5205277236191770186, guid: 0ff7489ce3aade34095b90b206b18808, type: 3}
       propertyPath: playerArrow
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5205277236191770186, guid: 0ff7489ce3aade34095b90b206b18808, type: 3}
       propertyPath: numOfHearths
