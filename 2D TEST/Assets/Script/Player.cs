@@ -85,7 +85,7 @@ public class Player : MonoBehaviour
     {
         if (playerHealth == numOfHearths)
         {
-            if(playerHealth != 10) { 
+            if(playerHealth != 5) { 
                 numOfHearths += health;
                 playerHealth += health;
             }
@@ -99,14 +99,36 @@ public class Player : MonoBehaviour
         {
             playerHealth += health;
         }
-		Debug.Log(playerHealth);
+		//Debug.Log(playerHealth);
     }
 
-    public void TakeDamage(int damage)
+	public void AddArrow(int arrow)
+	{
+		if (playerArrow == arrowSize)
+		{
+			if (playerArrow != 5)
+			{
+				arrowSize += arrow;
+				playerArrow += arrow;
+			}
+			else
+			{
+
+				playerArrow = arrowSize;
+			}
+		}
+		else
+		{
+			playerArrow += arrow;
+		}
+		Debug.Log(playerArrow);
+	}
+
+	public void TakeDamage(int damage)
     {
         playerHealth -= damage;
         Debug.Log(playerHealth);
-        if (playerHealth <= 0)
+        if (playerHealth == 0)
         {
             Die();
         }
@@ -122,7 +144,7 @@ public class Player : MonoBehaviour
 	public void SavePlayer()
 	{
 		SaveSystem.SavePlayer(this);
-		Debug.Log("Saved " + playerHealth);
+		//Debug.Log("Saved " + playerHealth);
 	}
 
 	public void LoadPlayer()
@@ -133,6 +155,12 @@ public class Player : MonoBehaviour
 		playerArrow = data.arrow;
 		numOfHearths = data.heartSize;
 		arrowSize = data.numArrow;
-		Debug.Log("Loaded " + playerHealth);
+
+		//Vector3 position;
+		//position.x = data.position[0];
+		//position.y = data.position[1];
+		//position.z = data.position[2];
+		//transform.position = position;
+		//Debug.Log("Loaded " + playerHealth);
 	}
 }

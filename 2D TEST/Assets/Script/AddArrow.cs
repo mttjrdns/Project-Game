@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AddHealth : MonoBehaviour
+public class AddArrow : MonoBehaviour
 {
-    public int health;
+    public int arrow;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Player player = collision.gameObject.GetComponent<Player>();
         if (player != null)
         {
-            player.AddHealth(health);
+            player.AddArrow(arrow);
             Destroy(gameObject);
-        }    
+        }
     }
 }
