@@ -81,6 +81,7 @@ public class Player : MonoBehaviour
 				arrows[i].enabled = false;
 			}
 		}
+		//Debug.Log(quest.isActive);
 	}
 
     public void AddHealth(int health)
@@ -123,7 +124,17 @@ public class Player : MonoBehaviour
 		{
 			playerArrow += arrow;
 		}
-		Debug.Log(playerArrow);
+
+		if (quest.isActive)
+		{
+			quest.goal.ArrowCollected();
+			if (quest.goal.isReached())
+			{
+				playerHealth += quest.healthBonus;
+				quest.Complete();
+			}
+		}
+		//Debug.Log(playerArrow);
 	}
 
 	public void TakeDamage(int damage)

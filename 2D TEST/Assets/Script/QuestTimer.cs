@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using System;
 public class QuestTimer : MonoBehaviour
 {
+	public bool isActive;
+
 	public float startMinute = 5f;
 	float currentTime = 0f;
 
@@ -18,22 +20,25 @@ public class QuestTimer : MonoBehaviour
 
 	void Update()
 	{
-		currentTime = currentTime - Time.deltaTime;
-		TimeSpan time = TimeSpan.FromSeconds(currentTime);
-		countdownText.text = time.Minutes.ToString() + ":" + time.Seconds.ToString();
-
-		if(currentTime <= 0)
+		if (isActive)
 		{
-			currentTime = 0;
-			
-		}
+			currentTime = currentTime - Time.deltaTime;
+			TimeSpan time = TimeSpan.FromSeconds(currentTime);
+			countdownText.text = time.Minutes.ToString() + ":" + time.Seconds.ToString();
 
-		player = Player.FindObjectOfType<Player>();
-		//Debug.Log(player.playerHealth);
+			if (currentTime <= 0)
+			{
+				currentTime = 0;
 
-		if (player.playerHealth == 1)
+			}
+
+			player = Player.FindObjectOfType<Player>();
+			//Debug.Log(player.playerHealth);
+
+			if (player.playerHealth == 1)
 			{
 				currentTime = 0;
 			}
+		}
 	}
 }
