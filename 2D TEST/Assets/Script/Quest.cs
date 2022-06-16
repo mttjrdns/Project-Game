@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Quest : MonoBehaviour
+public class Quest
 {
-    //public 
-    // Start is called before the first frame update
+    public bool isActive;
+
+    public string title;
+    public int healthBonus;
+
+    public QuestGoal goal;
 }

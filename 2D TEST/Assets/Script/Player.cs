@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     public Sprite empty;
     public int arrowSize;
     public int playerArrow;
+
+	public Quest quest;
 	//public GameObject deathEffect;
 
 	private void Update()
